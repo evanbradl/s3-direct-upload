@@ -1,9 +1,13 @@
 import express from 'express'
 import { generateUploadURL } from './s3.js'
 
+
 const app = express()
-console.log(__dirname)
 app.use(express.static('front'))
+
+// app.get('/', (req, res) => {
+//   res.send("HELLO WORLD");
+// })
 
 app.get('/s3Url', async (req, res) => {
   const url = await generateUploadURL()
